@@ -1,0 +1,22 @@
+version: '2'
+services:
+  lftl:
+    build:
+      context: .
+    image: lftl
+    container_name: lftl
+    volumes:
+      - .:/mnt/lftl
+    ports:
+      - "8080:1313"
+    command: /tmp/lftl/run_local.sh
+  lftl_shell:
+    build:
+      context: .
+    image: lftl
+    container_name: lftl_shell
+    volumes:
+      - .:/mnt/lftl
+    ports:
+      - "8080:1313"
+    command: /tmp/lftl/run_shell.sh

@@ -1,0 +1,22 @@
+version: '2'
+services:
+  cardiacnp:
+    build:
+      context: .
+    image: cardiacnp
+    container_name: cardiacnp
+    volumes:
+      - .:/mnt/cardiacnp
+    ports:
+      - "8081:1313"
+    command: /tmp/cardiacnp/run_local.sh
+  cardiacnp_shell:
+    build:
+      context: .
+    image: cardiacnp
+    container_name: cardiacnp_shell
+    volumes:
+      - .:/mnt/cardiacnp
+    ports:
+      - "8081:1313"
+    command: /tmp/cardiacnp/run_shell.sh
